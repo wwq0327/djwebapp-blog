@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for djblog project.
 
@@ -65,8 +66,9 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
+# 设置语言
 LANGUAGE_CODE = 'zh-cn'
-
+# 时区
 TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
@@ -81,11 +83,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# 静态文件目录
 STATICFILES_DIRS = (
-	os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "static"),
 )
 
+# 模版文件目录
 TEMPLATE_DIRS = (
-	os.path.join(BASE_DIR, "templates"),
+    os.path.join(BASE_DIR, "templates"),
 )	
 
