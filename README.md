@@ -3,4 +3,4 @@
 
 项目地址：
 
-<https://github.com/wwq0327/django-web-app-book>
+> <https://github.com/wwq0327/django-web-app-book>
