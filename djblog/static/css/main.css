@@ -67,3 +67,18 @@ code {
   border-bottom: 1px dotted #ccc;
 }
 
+blockquote p {
+  font-size: 16px;
+  color: #2f2f2f;
+  line-height: 24px;
+  font-weight: 100;
+  word-break: break-word;
+  font-family: Georgia,"Times New Roman",Times,"KaiTi",serif;
+}
+
+blockquote {
+	border-left: 5px solid #999;;
+	background-color: #f6f6f6;
+	line-height: 24px;
+}
+
