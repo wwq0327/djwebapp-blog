@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+{% include "blog/_post.html" %}
+{% endblock %}
+
+{% block rightside %}
+{% include "blog/_side.html" %}
+{% endblock %}

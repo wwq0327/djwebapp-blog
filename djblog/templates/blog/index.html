@@ -2,10 +2,10 @@
 {% block title %}首页{% endblock %}
 {% block content %}
 {% for post in posts %}
-<div class="post">
-  <h3 class="page-header"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
-  <div class="info">{{ post.pub_data|date:"Y/m/d H:i" }} by {{ post.author.username }}</div>
-  <div class="content">{{ post.content|linebreaks }}</div>
-</div>
+{% include "blog/_post.html" %}
 {% endfor %}
+{% endblock %}
+
+{% block rightside %}
+{% include "blog/_side.html" %}
 {% endblock %}

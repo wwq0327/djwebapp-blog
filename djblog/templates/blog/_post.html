@@ -1,0 +1,5 @@
+<div class="post">
+  <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+  <div class="info">{{ post.author.username }} / {{ post.pub_data|date:"Y/m/d H:i" }}</div>
+  <div class="content">{{ post.content }}</div>
+</div>
