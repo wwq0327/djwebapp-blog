@@ -10,6 +10,10 @@ class Category(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('category', (), {'pk': self.pk})
     
 class Post(models.Model):
     title = models.CharField(u"标题", max_length=128)

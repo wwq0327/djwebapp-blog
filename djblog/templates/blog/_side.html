@@ -11,7 +11,7 @@
     {% if categories %}
     <ul class="list-unstyled">
     {% for c in categories %}
-      <li>- {{ c.name|safe }}</li>
+      <li>- <a href="{{ c.get_absolute_url }}">{{ c.name|safe }}</a></li>
     {% endfor %}
     </ul>
     {% endif %}

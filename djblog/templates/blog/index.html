@@ -1,9 +1,19 @@
 {% extends "base.html" %}
-{% block title %}首页{% endblock %}
+{% load pagination_tags %}
+
+{% block title %}{% if is_category %}“{{ cate_name|safe }}”文章列表{% else %}首页{% endif %}{% endblock %}
 {% block content %}
+{% if is_category %}
+<div class="well well-sm">
+	“{{ cate_name|safe }}”分类中共有
+	<span class="label label-info">{{ posts|length}}</span>篇：
+</div>
+{% endif %}
+{% autopaginate posts %}
 {% for post in posts %}
 {% include "blog/_post.html" %}
 {% endfor %}
+{% paginate %}
 {% endblock %}
 
 {% block rightside %}
