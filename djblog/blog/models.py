@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     name = models.CharField(u'文章分类', max_length=64)
 
-    class Mate:
+    class Meta:
         ordering = ['-id']
 
     def __unicode__(self):
