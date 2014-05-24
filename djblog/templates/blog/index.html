@@ -10,9 +10,12 @@
 </div>
 {% endif %}
 {% autopaginate posts %}
+{% if posts %}
 {% for post in posts %}
 {% include "blog/_post.html" %}
 {% endfor %}
+{% else %}
+<h4>暂时还没有发布任何内容~~</h4>
 {% paginate %}
 {% endblock %}
 

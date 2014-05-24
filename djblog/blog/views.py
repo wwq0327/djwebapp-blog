@@ -8,7 +8,7 @@ from blog.models import Post, Category
 def index(request):
 	"""blog列表"""
 	categories = Category.objects.all()
-	posts = get_list_or_404(Post)
+	posts = Post.objects.all()
 	return render_to_response("blog/index.html",
 				  {"posts": posts,
 				   "categories": categories
