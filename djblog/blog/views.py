@@ -2,28 +2,35 @@
 from django.shortcuts import render_to_response, get_list_or_404, get_object_or_404
 from django.template import RequestContext
 from django.http import Http404
+from django.views.generic import ListView, DetailView
 
 from blog.models import Post, Category
 
-def index(request):
-	"""blog列表"""
-	categories = Category.objects.all()
-	posts = Post.objects.all()
-	return render_to_response("blog/index.html",
-				  {"posts": posts,
-				   "categories": categories
-				   },
-				  context_instance=RequestContext(request))
+class PostList(ListView):
+	model = Post
+	context_object_name = 'posts'
+	template_name = 'blog/index.html'
 
-def post(request, pk):
-	"""单篇文章"""
-	categories = Category.objects.all()
-	post = get_object_or_404(Post, pk=pk)
-	return render_to_response("blog/post.html",
-				  {"post": post,
-				   "categories": categories
-				   },
-				  context_instance=RequestContext(request))
+	def get_context_data(self, **kwargs):
+		ctx = super(PostList, self).get_context_data(**kwargs)
+		ctx['categories'] = Category.objects.all()
+		return ctx
+
+index = PostList.as_view()
+
+
+class PostDetailView(DetailView):
+	model = Post
+	context_object_name = 'post'
+	template_name = 'blog/post.html'
+
+	def get_context_data(self, **kwargs):
+		ctx = super(PostDetailView, self).get_context_data(**kwargs)
+		ctx['categories'] = Category.objects.all()
+
+		return ctx
+
+post = PostDetailView.as_view()
 
 def category(request, pk):
 	"""相应分类下的文章检索"""
